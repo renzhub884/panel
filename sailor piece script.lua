@@ -1,8 +1,3 @@
--- added comments so u understand better
--- just copy and paste it into carbon ui while formatted in it yk
--- made by melmelmelmelmelmelmelmel hehe
-
--- init
 if getgenv().melissacarbon_Running then
     warn("Script already running!")
     return
