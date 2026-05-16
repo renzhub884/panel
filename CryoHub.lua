@@ -1,10 +1,5 @@
 local CryoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/xlebaaa3-netizen/UIMAIN/refs/heads/main/CRYOLIB"))()
 
--- ═══════════════════════════════════════════
---  C R Y O   H U B
--- ═══════════════════════════════════════════
-
--- [[ STATE MANAGEMENT ]]
 local states = {
     autoCollect = false,
     collectRadius = 50,
@@ -19,7 +14,6 @@ local states = {
     antiAFK = false
 }
 
--- [[ REMOTE UTILITIES ]]
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local basePath = {"Packages", "_Index", "leifstout_networker@0.3.1", "networker", "_remotes"}
 
@@ -48,14 +42,8 @@ local indexRF     = getRemote("IndexService", "RemoteFunction")
 local inventoryRF = getRemote("InventoryService", "RemoteFunction")
 local zonesRF     = getRemote("ZonesService", "RemoteFunction")
 
--- ═══════════════════════════════════════════
---  WINDOW SETUP
--- ═══════════════════════════════════════════
 local win = CryoLib:CreateWindow("Cryo Hub")
 
--- ═══════════════════════════════════════════
---  TAB: MAIN
--- ═══════════════════════════════════════════
 local mainTab = win:CreateTab("Main")
 
 mainTab:CreateLabel("Main")
@@ -178,9 +166,6 @@ mainTab:CreateToggle("Auto Claim Index", function(state)
     end)
 end)
 
--- ═══════════════════════════════════════════
---  AUTO COLLECT RECIPE (УПРОЩЁННАЯ ВЕРСИЯ)
--- ═══════════════════════════════════════════
 mainTab:CreateToggle("Auto Collect Recipe", function(state)
     states.autoCollectRecipe = state
     task.spawn(function()
@@ -228,9 +213,6 @@ mainTab:CreateToggle("Auto Collect Recipe", function(state)
     end)
 end)
 
--- ═══════════════════════════════════════════
---  TAB: MISC
--- ═══════════════════════════════════════════
 local miscTab = win:CreateTab("Misc")
 
 miscTab:CreateLabel("Player")
@@ -239,7 +221,6 @@ miscTab:CreateSlider("WalkSpeed", 32, 300, states.walkSpeedValue, function(value
     states.walkSpeedValue = value
 end)
 
--- [[ ANTI AFK С БЛОКИРОВКОЙ AUTO REJOIN ]]
 local AntiAfkService = {
     Active = false,
     Connection = nil
@@ -313,17 +294,11 @@ miscTab:CreateButton("Redeem All Codes", function()
     end
 end)
 
--- ═══════════════════════════════════════════
---  TAB: CREDITS
--- ═══════════════════════════════════════════
 local creditsTab = win:CreateTab("Credits")
 creditsTab:CreateLabel("Creator: Powder")
 creditsTab:CreateLabel("UI: Lu4ikk1")
 creditsTab:CreateLabel("Thanks for using Cryo Hub!")
 
--- ═══════════════════════════════════════════
---  BACKGROUND SYSTEMS
--- ═══════════════════════════════════════════
 task.spawn(function()
     while task.wait() do
         pcall(function()
